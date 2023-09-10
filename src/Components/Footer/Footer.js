@@ -1,13 +1,13 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 
-const Footer = ({ allQuestionsChecked, sendReport }) => {
+const Footer = ({  disabled, sendReport  }) => {
   return (
-    <div>
+    <div className='d-flex justify-content-center'>
       <Button
-        variant="primary"
-        onClick={sendReport}
-        disabled={!allQuestionsChecked}
+      className=''
+        variant="outline-primary"
+        disabled={disabled} onClick={sendReport}
       >
         Save
       </Button>
