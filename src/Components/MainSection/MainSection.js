@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import DownArrow from '../../assets/down.svg';
+
 const MainSection = ({progress}) => {
   //Module name
   const titleModuleName = 'Responsive Checklist';
@@ -19,6 +21,22 @@ const MainSection = ({progress}) => {
     const storedSelections = JSON.parse(localStorage.getItem('selectedOptions')) || {};
     setSelectedOptions(storedSelections);
   }, []);
+
+  const calculateProgress = () => {
+    let total = 0;
+    let completed = 0;
+
+    checklistData.forEach(section => {
+      total += section.questions.length;
+      section.questions.forEach(question => {
+        if (selectedOptions[section.title]?.[question]) {
+          completed += 1;
+        }
+      });
+    });
+
+    return { total, completed };
+  };
 
   const handleOptionChange = (title, question) => {
     const updatedSelections = {
@@ -44,15 +62,25 @@ const MainSection = ({progress}) => {
     <Row>
       <Col>
         <span className='fs-5 fw-bold'>
-          {titleModuleName}
+        {titleModuleName}
         </span>
       </Col>
       <Col>
-      <div className='d-flex justify-content-end'>
-        <span className=' fst-italic'>
-          {progressTitle} :
-          {progress?.completed}/{progress?.total} Completed
-        </span>
+      <div className='d-flex justify-content-end align-items-center'>
+      <span className=' fst-italic'>
+                {progressTitle} :
+                
+              </span>
+              <div className='ms-3 rounded_corner'>
+              <span style={{fontSize: '16px',fontWeight: 'bold', color: '#00517C'}}>
+              {calculateProgress().completed}
+              </span>
+              <span style={{fontSize: '14px', color: '#06B6E8'}}>
+              /{calculateProgress().total} 
+              </span>
+                
+              </div>
+              
         </div>
       </Col>
     </Row>
@@ -77,7 +105,16 @@ const MainSection = ({progress}) => {
       </div>
       </Col>
     </Row>
+    <Row>
+    <div className="scroll-down-text d-flex justify-content-end" >
+      <span style={{fontSize: '14px', color: '#d5d5d5', }}>
+            Scroll
+      </span>
+      <img src={DownArrow} alt='down arrow' />
     </div>
+    </Row>
+    </div>
+    
     </>
   )
 }
