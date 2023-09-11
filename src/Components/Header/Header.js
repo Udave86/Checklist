@@ -2,17 +2,20 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 
+import Logo from '../../assets/logo.svg';
+
 const Header = () => {
   
     return (
-      <Navbar bg="light">
-        <Container>
+      <Navbar className='bg-transparent mb-30'>
+        <Container fluid>
           {/* Add your logo */}
-          <Navbar.Brand>Logo</Navbar.Brand>
-          {/* "Require Checklist" text */}
-          <Navbar.Text>Require Checklist</Navbar.Text>
-          {/* Progress indicator */}
-          <Navbar.Text className="ml-auto">Progress: 0/3</Navbar.Text>
+          <Navbar.Brand className='d-flex justify-content-center w-100'>
+            <img src={Logo} alt='Tridhya Tech logo'
+            style={{width: '270px', height:'50px'}}
+            />
+          </Navbar.Brand>
+         
         </Container>
       </Navbar>
     );
