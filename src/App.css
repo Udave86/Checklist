@@ -43,9 +43,9 @@
   background-color: #00517C !important;
 }
 .scrollbar{
-  overflow: scroll;
-  height: 350px;
-  min-height: 350px;
+  overflow-y: scroll;
+  height: 300px;
+  min-height: 300px;
   max-height: 700px;
 }
 .rounded_corner{
@@ -55,4 +55,9 @@
     width: 40px;
     height: 40px;
     background-color: #F5F5F5;
+}
+.scroll-down-text{
+  position: relative;
+  top: -40px; 
+  left: -30px;
 }

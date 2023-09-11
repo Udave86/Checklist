@@ -105,14 +105,14 @@ const MainSection = ({progress}) => {
       </div>
       </Col>
     </Row>
-    <Row>
-    <div className="scroll-down-text d-flex justify-content-end" >
+    {/* <div className='scroll-down-text'>
+    <div className=" d-flex justify-content-end" >
       <span style={{fontSize: '14px', color: '#d5d5d5', }}>
             Scroll
       </span>
       <img src={DownArrow} alt='down arrow' />
     </div>
-    </Row>
+    </div> */}
     </div>
     
     </>
